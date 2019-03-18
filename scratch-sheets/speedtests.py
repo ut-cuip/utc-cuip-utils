@@ -12,7 +12,7 @@ def step_by_step_dict():
     data["key7"] = 1000
     data["key8"] = "another string"
     data["key9"] = 1000
-    return
+    return data
 
 
 def brackets_dict():
@@ -27,11 +27,11 @@ def brackets_dict():
         "key8": "another string",
         "key9": 1000,
     }
-    return
+    return data
 
 def run_timeit_tests():
-    print(timeit('step_by_step_dict()', number=100000, globals=globals()))
-    print(timeit('brackets_dict()', number=100000, globals=globals()))
+    print(timeit('step_by_step_dict()', number=10000000, globals=globals()))
+    print(timeit('brackets_dict()', number=10000000, globals=globals()))
 
 if __name__ == '__main__':
     run_timeit_tests()
