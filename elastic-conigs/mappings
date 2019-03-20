@@ -1,0 +1,369 @@
+DELETE mlk_*__quality
+PUT mlk_central_air_quality
+PUT mlk_magnolia_air_quality
+PUT mlk_peeples_air_quality
+PUT mlk_douglas_air_quality
+PUT mlk_georgia_air_quality
+
+PUT mlk_*_air_quality/_mapping/air_quality_raw
+{
+  "air_quality_raw": 
+  {
+    "properties": {
+      "location": {
+        "type": "geo_point"
+      },
+      "timestamp": {
+        "type": "date"
+      }
+    }
+  }
+}
+  
+
+
+PUT mlk_central_air_quality/_mapping/air_quality_raw
+{
+  "mapping": {
+    "vision_event": {
+      "properties": {
+        "camera_id": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "id": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "intersection": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "label": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "locations": {
+          "type": "nested",
+          "properties": {
+            "coords": {
+              "type": "float"
+            },
+            "location": {
+              "type": "text"
+            },
+            "timestamp": {
+              "type": "date"
+            }
+          }
+        },
+        "pole_id": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "timestamp": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+DELETE mlk_central_air_quality-*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PUT _template/template_1
+{
+  "index_patterns": ["te*", "bar*"],
+  "settings": {
+    "number_of_shards": 1
+  },
+
+      "mapping": {
+        "air_quality_raw": {
+          "properties": {
+            "Adc": {
+              "type": "float"
+            },
+            "DateTime": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "Geo": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "Id": {
+              "type": "long"
+            },
+            "Mem": {
+              "type": "long"
+            },
+            "SensorId": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "current_dewpoint_f": {
+              "type": "float"
+            },
+            "current_humidity": {
+              "type": "long"
+            },
+            "current_temp_f": {
+              "type": "long"
+            },
+            "hardwarediscovered": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "hardwareversion": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "key1_count": {
+              "type": "long"
+            },
+            "key1_count_b": {
+              "type": "long"
+            },
+            "key1_responseCode": {
+              "type": "long"
+            },
+            "key1_responseCode_b": {
+              "type": "long"
+            },
+            "key1_responseCode_date": {
+              "type": "long"
+            },
+            "key1_responseCode_date_b": {
+              "type": "long"
+            },
+            "key2_count": {
+              "type": "long"
+            },
+            "key2_count_b": {
+              "type": "long"
+            },
+            "key2_responseCode": {
+              "type": "long"
+            },
+            "key2_responseCode_b": {
+              "type": "long"
+            },
+            "key2_responseCode_date": {
+              "type": "long"
+            },
+            "key2_responseCode_date_b": {
+              "type": "long"
+            },
+            "lat": {
+              "type": "float"
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "lon": {
+              "type": "float"
+            },
+            "nicename": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "p_0_3_um": {
+              "type": "float"
+            },
+            "p_0_3_um_b": {
+              "type": "float"
+            },
+            "p_0_5_um": {
+              "type": "float"
+            },
+            "p_0_5_um_b": {
+              "type": "float"
+            },
+            "p_10_0_um": {
+              "type": "float"
+            },
+            "p_10_0_um_b": {
+              "type": "float"
+            },
+            "p_1_0_um": {
+              "type": "float"
+            },
+            "p_1_0_um_b": {
+              "type": "float"
+            },
+            "p_2_5_um": {
+              "type": "float"
+            },
+            "p_2_5_um_b": {
+              "type": "float"
+            },
+            "p_5_0_um": {
+              "type": "float"
+            },
+            "p_5_0_um_b": {
+              "type": "float"
+            },
+            "pm10_0_atm": {
+              "type": "float"
+            },
+            "pm10_0_atm_b": {
+              "type": "float"
+            },
+            "pm10_0_cf_1": {
+              "type": "float"
+            },
+            "pm10_0_cf_1_b": {
+              "type": "float"
+            },
+            "pm1_0_atm": {
+              "type": "float"
+            },
+            "pm1_0_atm_b": {
+              "type": "float"
+            },
+            "pm1_0_cf_1": {
+              "type": "float"
+            },
+            "pm1_0_cf_1_b": {
+              "type": "float"
+            },
+            "pm2_5_atm": {
+              "type": "float"
+            },
+            "pm2_5_atm_b": {
+              "type": "float"
+            },
+            "pm2_5_cf_1": {
+              "type": "float"
+            },
+            "pm2_5_cf_1_b": {
+              "type": "float"
+            },
+            "pressure": {
+              "type": "float"
+            },
+            "responseCode": {
+              "type": "long"
+            },
+            "responseCode_date": {
+              "type": "long"
+            },
+            "rssi": {
+              "type": "long"
+            },
+            "timestamp": {
+              "type": "date"
+            },
+            "uptime": {
+              "type": "long"
+            },
+            "version": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        }
+      }
+    }
